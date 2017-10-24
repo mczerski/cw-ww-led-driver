@@ -7007,7 +7007,7 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.4064" drill="0">
 </class>
 <class number="1" name="VCC" width="0.762" drill="0">
 </class>
@@ -7039,6 +7039,8 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <part name="D2" library="diode" deviceset="ZENER-DIODE" device="SOD80C" value="5.6V"/>
 <part name="D3" library="diode" deviceset="ZENER-DIODE" device="SOD80C" value="5.6V"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C1210" value="10u"/>
+<part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="100k"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="100k"/>
 </parts>
 <sheets>
 <sheet>
@@ -7076,6 +7078,8 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <instance part="D2" gate="G$1" x="-25.4" y="27.94" rot="R90"/>
 <instance part="D3" gate="G$1" x="-25.4" y="-5.08" rot="R90"/>
 <instance part="C1" gate="G$1" x="-35.56" y="68.58"/>
+<instance part="R6" gate="G$1" x="10.16" y="50.8" rot="R180"/>
+<instance part="R7" gate="G$1" x="10.16" y="17.78" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -7230,6 +7234,9 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <wire x1="-2.54" y1="22.86" x2="-2.54" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="EN/PWM"/>
 <wire x1="-2.54" y1="53.34" x2="15.24" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="50.8" x2="15.24" y2="53.34" width="0.1524" layer="91"/>
+<junction x="15.24" y="53.34"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -7240,13 +7247,17 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <pinref part="IC2" gate="G$1" pin="EN/PWM"/>
 <wire x1="15.24" y1="20.32" x2="-2.54" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="20.32" x2="-2.54" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="20.32" x2="15.24" y2="17.78" width="0.1524" layer="91"/>
+<junction x="15.24" y="20.32"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="IC1" gate="G$1" pin="VIN"/>
-<wire x1="15.24" y1="55.88" x2="2.54" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="55.88" x2="5.08" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="55.88" x2="2.54" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="55.88" x2="-10.16" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="55.88" x2="-10.16" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
@@ -7254,7 +7265,8 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <junction x="2.54" y="55.88"/>
 <pinref part="IC2" gate="G$1" pin="VIN"/>
 <wire x1="2.54" y1="48.26" x2="2.54" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="22.86" x2="5.08" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="22.86" x2="0" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="0" y1="22.86" x2="0" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="0" y1="48.26" x2="2.54" y2="48.26" width="0.1524" layer="91"/>
@@ -7262,6 +7274,12 @@ diameter 3 mm, horizontal, grid 12.7 mm</description>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="2.54" y1="12.7" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
 <junction x="2.54" y="22.86"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="5.08" y1="17.78" x2="5.08" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="5.08" y1="50.8" x2="5.08" y2="55.88" width="0.1524" layer="91"/>
+<junction x="5.08" y="55.88"/>
+<junction x="5.08" y="22.86"/>
 </segment>
 </net>
 <net name="N$11" class="0">
